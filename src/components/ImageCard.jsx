@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const Card = styled.div`
   display: flex;
   justify-content: center;
-  width: 90px;
-  height: 90px;
+  width: 5rem;
+  height: 5rem;
   padding: 0.313rem;
   border-radius: 6px;
   background-image: url(${({ photo }) => photo});

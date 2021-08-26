@@ -11,6 +11,7 @@ export const Container = styled.aside`
   width: 22.5rem;
   height: 100vh;
   overflow-y: auto;
+  overflox-x: hidden !important;
 `;
 
 export const Search = styled.section`

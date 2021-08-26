@@ -35,4 +35,17 @@ export const Address = styled.span`
   font-size: 1rem;
   line-heigth: 1.188rem;
   margin-box: 0.625rem;
+  margin-top: 0.625rem;
+`;
+
+export const RestaurantPhoto = styled.img`
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  transition: 0.5s ease;
+  :hover {
+    width: 5.313rem;
+    height: 5.313rem;
+  }
 `;
