@@ -23,7 +23,7 @@ const Home = () => {
     dots: false,
     infinite: true,
     speed: 300,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 4,
     adaptiveHeigth: true,
   };
@@ -42,11 +42,11 @@ const Home = () => {
           </TextField>
           <CarouselTitle>Na sua Área</CarouselTitle>
           <Carousel {...settings}>
-            <ImageCard photo={restaurante} />
-            <ImageCard photo={restaurante} />
-            <ImageCard photo={restaurante} />
-            <ImageCard photo={restaurante} />
-            <ImageCard photo={restaurante} />
+            <ImageCard photo={restaurante} title="name" />
+            <ImageCard photo={restaurante} title="name" />
+            <ImageCard photo={restaurante} title="name" />
+            <ImageCard photo={restaurante} title="name" />
+            <ImageCard photo={restaurante} title="name" />
           </Carousel>
         </Search>
       </Container>

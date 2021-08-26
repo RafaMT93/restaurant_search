@@ -36,6 +36,9 @@ export const Carousel = styled(Slider)`
   .slick-slide {
     margin-right: 16px;
   }
+  .slick-slide {
+    max-height: 3.313rem;
+  }
 `;
 
 export const CarouselTitle = styled.h1`
