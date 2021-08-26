@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Card, RestaurantCard } from '../components';
+import React from 'react';
+import { Card, RestaurantCard, Modal } from '../components';
 
 import TextField, { Input } from '@material/react-text-field';
 import logo from '../assets/logo.svg';
@@ -17,7 +17,8 @@ import MaterialIcon from '@material/react-material-icon';
 import restaurante from '../assets/restaurante-fake.png';
 
 const Home = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = React.useState('');
+  const [modalOpened, setModalOpened] = React.useState(false);
 
   const settings = {
     dots: false,
@@ -48,6 +49,7 @@ const Home = () => {
             <Card photo={restaurante} title="name" />
             <Card photo={restaurante} title="name" />
           </Carousel>
+          <button onClick={() => setModalOpened(true)}>Abrir Modal</button>
         </Search>
         <RestaurantCard name="Nome do Restaurante" address="Endereço" />
         <RestaurantCard name="Nome do Restaurante" address="Endereço" />
@@ -56,6 +58,7 @@ const Home = () => {
         <RestaurantCard name="Nome do Restaurante" address="Endereço" />
       </Container>
       <Map />
+      <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)} />
     </Wrapper>
   );
 };
