@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ImageCard from '../components/ImageCard';
+import { Card, RestaurantCard } from '../components';
 
 import TextField, { Input } from '@material/react-text-field';
 import logo from '../assets/logo.svg';
@@ -42,13 +42,18 @@ const Home = () => {
           </TextField>
           <CarouselTitle>Na sua Área</CarouselTitle>
           <Carousel {...settings}>
-            <ImageCard photo={restaurante} title="name" />
-            <ImageCard photo={restaurante} title="name" />
-            <ImageCard photo={restaurante} title="name" />
-            <ImageCard photo={restaurante} title="name" />
-            <ImageCard photo={restaurante} title="name" />
+            <Card photo={restaurante} title="name" />
+            <Card photo={restaurante} title="name" />
+            <Card photo={restaurante} title="name" />
+            <Card photo={restaurante} title="name" />
+            <Card photo={restaurante} title="name" />
           </Carousel>
         </Search>
+        <RestaurantCard name="Nome do Restaurante" address="Endereço" />
+        <RestaurantCard name="Nome do Restaurante" address="Endereço" />
+        <RestaurantCard name="Nome do Restaurante" address="Endereço" />
+        <RestaurantCard name="Nome do Restaurante" address="Endereço" />
+        <RestaurantCard name="Nome do Restaurante" address="Endereço" />
       </Container>
       <Map />
     </Wrapper>
