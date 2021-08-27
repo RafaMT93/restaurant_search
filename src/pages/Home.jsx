@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, RestaurantCard, Modal } from '../components';
+import { Card, RestaurantCard, Modal, MapContainer } from '../components';
 
 import TextField, { Input } from '@material/react-text-field';
 import logo from '../assets/logo.svg';
@@ -57,7 +57,7 @@ const Home = () => {
         <RestaurantCard name="Nome do Restaurante" address="Endereço" />
         <RestaurantCard name="Nome do Restaurante" address="Endereço" />
       </Container>
-      <Map />
+      <MapContainer />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)} />
     </Wrapper>
   );
