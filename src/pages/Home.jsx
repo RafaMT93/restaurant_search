@@ -18,6 +18,7 @@ import restaurante from '../assets/restaurante-fake.png';
 
 const Home = () => {
   const [inputValue, setInputValue] = React.useState('');
+  const [query, setQuery] = React.useState(null);
   const [modalOpened, setModalOpened] = React.useState(false);
 
   const settings = {
@@ -29,6 +30,12 @@ const Home = () => {
     adaptiveHeigth: true,
   };
 
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      setQuery(inputValue);
+    }
+  }
+
   return (
     <Wrapper>
       <Container>
@@ -39,7 +46,11 @@ const Home = () => {
             outlined
             //onTrailingIconSelect={() => this.setState({ value: '' })}
             trailingIcon={<MaterialIcon role="button" icon="search" />}>
-            <Input value={inputValue} onChange={({ target }) => setInputValue(target.value)} />
+            <Input
+              value={inputValue}
+              onKeyPress={handleKeyPress}
+              onChange={({ target }) => setInputValue(target.value)}
+            />
           </TextField>
           <CarouselTitle>Na sua Área</CarouselTitle>
           <Carousel {...settings}>
@@ -57,7 +68,7 @@ const Home = () => {
         <RestaurantCard name="Nome do Restaurante" address="Endereço" />
         <RestaurantCard name="Nome do Restaurante" address="Endereço" />
       </Container>
-      <MapContainer />
+      <MapContainer query={query} />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)} />
     </Wrapper>
   );
