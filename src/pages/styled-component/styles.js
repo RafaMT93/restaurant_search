@@ -35,9 +35,7 @@ export const Map = styled.div`
 
 export const Carousel = styled(Slider)`
   .slick-slide {
-    margin-right: 16px;
-  }
-  .slick-slide {
+    margin-right: 1.875rem;
     max-height: 3.313rem;
   }
 `;
