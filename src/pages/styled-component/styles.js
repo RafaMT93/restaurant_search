@@ -36,7 +36,8 @@ export const Map = styled.div`
 export const Carousel = styled(Slider)`
   .slick-slide {
     margin-right: 1.875rem;
-    max-height: 3.313rem;
+    max-height: 125px;
+    min-height: 100px;
   }
 `;
 
@@ -66,4 +67,22 @@ export const ModalContent = styled.p`
   line-height: 1.188rem;
   font-size: 1rem;
   font-weight: normal;
+`;
+
+export const ModalContentRestaurantOpened = styled.p`
+  margin-bottom: 0.625rem;
+  font-family: ${({ theme }) => theme.fonts.regular};
+  color: green;
+  line-height: 1.188rem;
+  font-size: 1rem;
+  font-weight: bold;
+`;
+
+export const ModalContentRestaurantClosed = styled.p`
+  margin-bottom: 0.625rem;
+  font-family: ${({ theme }) => theme.fonts.regular};
+  color: red;
+  line-height: 1.188rem;
+  font-size: 1rem;
+  font-weight: bold;
 `;

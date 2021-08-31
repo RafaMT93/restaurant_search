@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Card, RestaurantCard, Modal, MapContainer, Loader } from '../components';
+import { Card, RestaurantCard, Modal, MapContainer, Loader, Skeleton } from '../components';
 
 import TextField, { Input } from '@material/react-text-field';
 import logo from '../assets/logo.svg';
@@ -13,6 +13,8 @@ import {
   Carousel,
   ModalTitle,
   ModalContent,
+  ModalContentRestaurantOpened,
+  ModalContentRestaurantClosed,
 } from './styled-component/styles';
 
 import MaterialIcon from '@material/react-material-icon';
@@ -30,7 +32,7 @@ const Home = () => {
     infinite: true,
     autoplay: true,
     speed: 300,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 4,
     adaptiveHeight: true,
   };
@@ -89,12 +91,26 @@ const Home = () => {
       </Container>
       <MapContainer query={query} placeId={placeId} />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
-        <ModalTitle>{restaurantSelected?.name}</ModalTitle>
-        <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
-        <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
-        <ModalContent>
-          {restaurantSelected?.opening_hours?.open_now ? 'Aberto Agora' : 'Fechado'}
-        </ModalContent>
+        {restaurantSelected ? (
+          <>
+            {' '}
+            <ModalTitle>{restaurantSelected?.name}</ModalTitle>
+            <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
+            <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
+            {restaurantSelected?.opening_hours?.open_now ? (
+              <ModalContentRestaurantOpened>Aberto</ModalContentRestaurantOpened>
+            ) : (
+              <ModalContentRestaurantClosed>Fechado</ModalContentRestaurantClosed>
+            )}
+          </>
+        ) : (
+          <>
+            <Skeleton width="0.625rem" height="0.625rem" />
+            <Skeleton width="0.625rem" height="0.625rem" />
+            <Skeleton width="0.625rem" height="0.625rem" />
+            <Skeleton width="0.625rem" height="0.625rem" />
+          </>
+        )}
       </Modal>
     </Wrapper>
   );

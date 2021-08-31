@@ -39,13 +39,14 @@ export const Address = styled.span`
 `;
 
 export const RestaurantPhoto = styled.img`
-  width: 5rem;
-  height: 5rem;
+  display: ${(props) => (props.imageLoaded ? 'block' : 'none')};
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 0.375rem;
   transition: 0.5s ease;
   :hover {
-    width: 5.313rem;
-    height: 5.313rem;
+    width: 110px;
+    height: 110px;
   }
 `;

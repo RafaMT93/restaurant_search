@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import Skeleton from './Skeleton';
 
 const Card = styled.div`
   display: flex;
   justify-content: center;
-  width: 5rem;
-  height: 5rem;
+  width: 100px;
+  height: 100px;
   padding: 0.313rem;
   border-radius: 6px;
   background-image: url(${({ photo }) => photo});
@@ -22,10 +23,24 @@ const Title = styled.span`
 `;
 
 const ImageCard = ({ photo, title, onClick }) => {
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    const imageLoader = new Image();
+    imageLoader.src = photo;
+    imageLoader.onload = () => setImageLoaded(true);
+  }, [photo]);
+
   return (
-    <Card photo={photo} onClick={onClick}>
-      <Title>{title}</Title>
-    </Card>
+    <>
+      {imageLoaded ? (
+        <Card photo={photo} onClick={onClick}>
+          <Title>{title}</Title>
+        </Card>
+      ) : (
+        <Skeleton width="90px" heigth="90px" />
+      )}
+    </>
   );
 };
 
