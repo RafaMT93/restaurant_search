@@ -11,16 +11,12 @@ export const MapContainer = (props) => {
   const [map, setMap] = React.useState(null);
 
   React.useEffect(() => {
-    if (query) {
-      searchByQuery(query);
-    }
-  }, [query]);
+    query && searchByQuery(query);
+  }, [searchByQuery, query]);
 
   React.useEffect(() => {
-    if (placeId) {
-      getRestaurantById(placeId);
-    }
-  }, [placeId]);
+    placeId && getRestaurantById(placeId);
+  }, [getRestaurantById, placeId]);
 
   function getRestaurantById() {
     const service = new google.maps.places.PlacesService(map);
@@ -78,9 +74,10 @@ export const MapContainer = (props) => {
   return (
     <Map
       google={google}
-      centerAroundcurrentLocation
+      centerAroundCurrentLocation
       onReady={onMapReady}
       onRecenter={onMapReady}
+      zoom={15}
       {...props}>
       {restaurants.map((restaurant) => (
         <Marker
