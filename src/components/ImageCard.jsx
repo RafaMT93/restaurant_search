@@ -10,6 +10,7 @@ const Card = styled.div`
   border-radius: 6px;
   background-image: url(${({ photo }) => photo});
   background-size: cover;
+  cursor: pointer;
 `;
 
 const Title = styled.span`
@@ -20,9 +21,9 @@ const Title = styled.span`
   margin-left: 0.625rem;
 `;
 
-const ImageCard = ({ photo, title }) => {
+const ImageCard = ({ photo, title, onClick }) => {
   return (
-    <Card photo={photo}>
+    <Card photo={photo} onClick={onClick}>
       <Title>{title}</Title>
     </Card>
   );
